@@ -1,0 +1,88 @@
+1.  SELECT nombre, apel FROM cli
+
+2.  SELECT * FROM cli
+
+3.  SELECT DISTINCT clasif FROM pel
+
+4.  SELECT * FROM pel WHERE tipo = 'DRAMA'
+
+5.  SELECT * FROM pel WHERE precio < 18 AND tipo = 'COMEDIA'
+
+6.  SELECT titulo, copias, precio*copias AS inversion FROM pel
+
+7.  SELECT titulo, copias, precio*copias FROM pel WHERE precio*copias < 60
+
+8.  SELECT titulo AS TITULO, FORMAT(precio, 0) FROM pel
+
+9.  SELECT COUNT(*) AS numerofacturas FROM fac
+
+10. SELECT SUM(precio*copias) AS inversion FROM pel
+
+11. SELECT MAX(precio*copias) AS maxima, MIN(precio*copias) AS minima, AVG(precio*copias) AS promedio FROM pel
+
+12. SELECT COUNT(*) AS horror FROM pel WHERE tipo IN ('HORROR')
+
+13. SELECT titulo AS TITULO, MAX(precio*copias) AS inversion FROM pel WHERE tipo IN ('COMEDIA')
+
+14. SELECT titulo, precio FROM pel WHERE precio BETWEEN 20 AND 30
+
+15. SELECT nombre, apel, prov FROM cli WHERE prov NOT IN ('MADRID', 'BARCELONA')
+
+16. SELECT titulo FROM pel WHERE titulo LIKE '%E_'
+
+17. SELECT * FROM cli ORDER BY nombre, apel
+
+18. SELECT * FROM cli ORDER BY prov, nombre DESC, apel DESC
+
+19. SELECT prov, COUNT(*) FROM cli GROUP BY prov
+
+20. SELECT cliid, SUM(total) FROM fac GROUP BY cliid
+
+21. SELECT cliid, SUM(total) FROM fac GROUP BY cliid HAVING SUM(total) > 10
+
+
+22. SELECT cli.nombre, cli.apel, cli.cliid, SUM(total) FROM cli, fac WHERE cli.cliid = fac.cliid GROUP BY cli.cliid HAVING SUM(total) > 10
+
+22-b. SELECT cli.nombre, cli.apel, cli.cliid, SUM(total) FROM cli INNER JOIN fac ON cli.cliid = fac.cliid GROUP BY cli.cliid HAVING SUM(total) > 10
+
+
+23. SELECT cli.cliid, cli.nombre, cli.apel, fac.f_num, fac.alq FROM cli, fac WHERE cli.cliid = fac.cliid ORDER BY cli.cliid, fac.f_num
+
+23-b. SELECT cli.cliid, cli.nombre, cli.apel, fac.f_num, fac.alq FROM cli INNER JOIN fac ON cli.cliid = fac.cliid ORDER BY cli.cliid, fac.f_num
+
+
+24. SELECT cli.cliid, cli.nombre, cli.apel, fac.f_num, fac.alq FROM cli LEFT JOIN fac ON cli.cliid = fac.cliid ORDER BY cli.cliid, fac.f_num
+
+25. SELECT pel.titulo FROM pel LEFT JOIN f_p ON f_p.p_num = pel.p_num WHERE f_p.f_num IS NULL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
